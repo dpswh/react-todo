@@ -1,0 +1,10 @@
+:root {
+  --white: #f0f0f0;
+}
+
+.card {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--white);
+  width: 500px;
+}
