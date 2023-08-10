@@ -1,0 +1,21 @@
+.todo__heading--form__container {
+  display: flex;
+  gap: 10px;
+}
+
+.todo__heading--form__input {
+  border: none;
+  border-radius: 0.5rem;
+  width: 80%;
+  padding: 0.5rem;
+}
+
+.todo__heading--form__button {
+  background-color: #38046A;
+  color: #e2c5ff;
+
+  border: none;
+  border-radius: 0.5rem;
+  height: 2rem;
+  width: 20%;
+}

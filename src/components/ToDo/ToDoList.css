@@ -1,0 +1,12 @@
+.todo__list {
+  list-style: decimal inside;
+  text-align: start;
+  padding-left: 0px;
+  font-size: 1.25rem;
+  color: #e2c5ff;
+}
+
+.todo--completed {
+  text-decoration: line-through;
+  color: #b0b0b0;
+}

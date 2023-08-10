@@ -2,12 +2,14 @@
   text-align: center;
   background-color: #f0f0f0;
   width: 500px;
-  height: 100px;
-  font-size: 1rem;
+  height: 70px;
+  font-size: 0.7rem;
   -webkit-border-top-left-radius: 20px;
   -webkit-border-top-right-radius: 20px;
   -moz-border-radius-topleft: 20px;
   -moz-border-radius-topright: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+
+
 }

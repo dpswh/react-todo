@@ -1,10 +1,19 @@
 :root {
   --white: #f0f0f0;
+
+  --blueberry--form: #6e37a4;
+  --blueberry--text: #e2c5ff;
 }
 
 .card {
+  justify-content: center;
+  align-items: center;
+  
+  height: fit-content;
   border-radius: 1rem;
   padding: 1rem;
-  background-color: var(--white);
-  width: 500px;
+  background-color: var(--blueberry--form);
+  width: 350px;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
