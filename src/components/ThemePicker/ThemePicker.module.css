@@ -1,15 +1,14 @@
 .theme-picker {
+  /* position: absolute; */
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
   text-align: center;
   background-color: #f0f0f0;
   width: 500px;
-  height: 70px;
+  height: 125px;
   font-size: 0.7rem;
-  -webkit-border-top-left-radius: 20px;
-  -webkit-border-top-right-radius: 20px;
-  -moz-border-radius-topleft: 20px;
-  -moz-border-radius-topright: 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 1rem;
 
 
 }

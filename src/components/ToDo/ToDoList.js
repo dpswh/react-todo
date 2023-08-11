@@ -3,6 +3,7 @@ import './ToDoList.css'
 
 export default function ToDoList(props) {
   const [completedItems, setCompletedItems] = useState([]);
+  const [toDos, setToDos] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
 
   // let totalTask = 
@@ -26,19 +27,30 @@ export default function ToDoList(props) {
 
   let data = props.task;
 
-  // const taskClickHandler = (clickedItem) => {
-  //   props.removeTask(clickedItem);
-  //   // console.log(clickedItem);
-  // }
+  const removeTaskHandler = (taskIndex) => {
+    data.splice(taskIndex, 1);
+    console.log(data);
+    
+  }
+
+  console.log(data);
 
   return (
     <ul className='todo__list'>
       {data.map((item, index) => (
-        <li
-          key={index}
-          onClick={() => toggledCompleted(item)}
-          className={completedItems.includes(item) ? 'todo--completed' : ''}
-        >{item}</li>
+        <div key={index} className='todo__item'>
+          <li
+            onClick={() => toggledCompleted(item)}
+            className={completedItems.includes(item) ? 'todo--completed' : ''}
+          >
+            {item}
+          </li>
+          <i
+            onClick={() => props.removeTask(item)}
+            className="fa-solid fa-x"
+            style={{ color: '' }}>
+          </i>
+        </div>
       ))}
     </ul>
   )

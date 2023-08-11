@@ -6,15 +6,14 @@ body {
   font-family: 'Signika', sans-serif;
 }
 
-.App {}
 
 .parent {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 100vh;
+  grid-row-gap: 30px;
+  height: 97vh;
 }
 
 .grid--top {
@@ -28,19 +27,54 @@ body {
 
 .flex--middle {
   display: flex;
-  justify-content: center;
   /* align-items: center; */
+  /* background-color: blue; */
   width: 100vw;
 }
 
 .grid--bottom {
+  /* position: relative; */
   grid-area: 3 / 1 / 4 / 2;
+  /* background-color: red; */
 }
 
 .bottom--container {
+  position: relative;
   display: flex;
+  width: 100vw;
+  height: auto;
   flex-direction: column;
-  justify-content: center;
+
   align-items: center;
+  /* background-color: maroon; */
 }
+
+.todo__add--button {
+  width: fit-content;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes upAndDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); /* Adjust the distance as needed */
+  }
+}
+
+.todo__placeholder {
+  font-style: italic;
+  font-weight: 200;
+  font-size: 4rem;
+  width: 50%;
+  color: #e2c5ff;
+  user-select: none;
+  animation: upAndDown 2s infinite ease-in-out;
+}
+
+
 

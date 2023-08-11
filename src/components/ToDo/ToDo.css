@@ -7,11 +7,15 @@
   grid-column-gap: 0px;
   grid-row-gap: 10px;
   /* justify-content: center; */
+  /* opacity: 0; */
+  /* transition: opacity 0.5s ease-in-out; */
 }
+
 
 .todo--flex {
   justify-content: center;
   align-items: center;
+  
 }
 
 .todo__grid--heading {

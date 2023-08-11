@@ -1,5 +1,8 @@
 import logo from './logo.svg';
-import React, { useState } from 'react';
+import React, { useState, useEffect, Component } from 'react';
+import { useSpring, animated, useTransition } from 'react-spring';
+
+
 
 // CSS Imports
 import styles from './components/ToDo/ToDoContainer.module.css';
@@ -14,31 +17,91 @@ import ToDo from './components/ToDo/ToDo';
 
 <script src="https://kit.fontawesome.com/8fa2bccd91.js" crossorigin="anonymous"></script>
 
+
+const quotes = [
+  'Motivation is what gets you started. Habit is what keeps you going.',
+  'We are what we repeatedly do. Excellence, therefore, is not an act but a habit.',
+  'Dreams won\'t work unless you do',
+  'I think goals should never be easy, they should force you to work, even if they are uncomfortable at the time.',
+  'If you aim for nothing, you\'ll hit it every time.',
+  'Let your actions be louder than your words and your dreams bigger than your fears.',
+  'Always dare to dream. For as long as there’s a dream, there is hope, and as long as there is hope, there is joy in living.',
+  'Man, fuck what other people think. Create the life you want my nigga.',
+]
+
+const randomNum = Math.floor(Math.random() * 8);
+
 function App() {
-  
+  const [numOfToDo, setNumOfToDo] = useState(0);
+  const [toDoTasks, setToDoTasks] = useState([]);
+
+  const transitions = useTransition(toDoTasks, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  });
+
+  const addToDoHandler = () => {
+    if (numOfToDo === 3) {
+      alert('Max of 3 ToDos only!');
+    } else {
+      setNumOfToDo(prevNum => prevNum + 1);
+    }
+  }
+
+  useEffect(() => {
+    const newToDoTasks = [];
+
+    for (let i = 0; i < numOfToDo; i++) {
+      newToDoTasks.push(`Task ${i + 1}`);
+    }
+
+    setToDoTasks(newToDoTasks);
+  }, [numOfToDo]);
+
+  let toDoPlaceholder =
+    <center>
+      <h1 className='todo__placeholder'>{quotes[randomNum]}</h1>
+    </center>
+
+  if (numOfToDo > 0) {
+    toDoPlaceholder = transitions((style, task) => (
+      <animated.div style={style}>
+        <ToDo className='todo--flex' task={task} />
+      </animated.div>
+    ))
+  }
 
   return (
     <div className="App parent">
-      
       <Date className='time grid--top' />
 
       <div className='grid--middle'>
-
-        <div className='flex--middle'>
-          <ToDo className='todo--flex'/>
-        </div>
-
-      </div>
-
-      <div className='grid--bottom bottom--container'>
-        <div>
-          <center><Button>Add a task</Button></center>
-          <ThemePicker/>
+        <div className='flex--middle' style={{
+          justifyContent: numOfToDo === 0 ? 'center' : 'space-evenly'
+        }}>
+          {toDoPlaceholder}
         </div>
       </div>
 
+      <div className='grid--bottom'>
+        <div className='bottom--container'>
+
+          <center>
+            <button
+              className='todo__add--button'
+              onClick={addToDoHandler}
+            >
+              Add a ToDo
+            </button>
+          </center>
+
+          <ThemePicker />
+        </div>
+      </div>
     </div>
   );
 }
 
 export default App;
+
