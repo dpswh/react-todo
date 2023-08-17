@@ -1,4 +1,7 @@
 import React, { useState, useId, useEffect } from 'react'
+import { useContext } from "react";
+import { AppContext } from '../../App';
+
 import './ToDoList.css'
 
 export default function ToDoList(props) {
@@ -30,8 +33,11 @@ export default function ToDoList(props) {
   const removeTaskHandler = (taskIndex) => {
     data.splice(taskIndex, 1);
     console.log(data);
+    setNumOfToDo(prevNum => prevNum - 1);
     
   }
+
+  const {numOfToDo, setNumOfToDo} = useContext(AppContext);
 
   console.log(data);
 

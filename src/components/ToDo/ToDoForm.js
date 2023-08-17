@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { AppContext } from '../../App';
 import './ToDoForm.css';
 
 export default function ToDoForm(props) {
+
+  const { dataTest, setdataTest } = useContext(AppContext);
 
   const [taskState, setTaskState] = useState();
 
@@ -15,6 +18,7 @@ export default function ToDoForm(props) {
     event.preventDefault();
     let data = taskState;
     props.addTask(data);
+    setdataTest(data);
     setTaskState('');
   }
 

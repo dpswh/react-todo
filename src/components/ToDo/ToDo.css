@@ -68,6 +68,7 @@
 }
 
 .todo__buttons--close {
+  
   background-color: #38046A;
   color: #e2c5ff;
   
@@ -76,7 +77,34 @@
   
   border: none;
   border-radius: 0.5rem;
+
+  cursor: pointer;
 }
+
+.todo__buttons--close--true {
+  position: relative;
+  background-color: #38046A;
+  color: #e2c5ff;
+  
+  height: 1.5rem;
+  width: 20%;
+  
+  border: none;
+  border-radius: 0.5rem;
+  top: 1rem;
+
+  cursor: pointer;
+}
+
+.todo__flex--buttons--close--true {
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  /* display: grid; */
+  /* height: 100%; */
+}
+
+
 
 .todo__grid--progress {
   grid-area: 4 / 1 / 5 / 2;
@@ -111,4 +139,8 @@
   linear-gradient(90deg, rgba(56,4,106,1) 0%, rgba(56,4,106,1) 100%)
       0/0% no-repeat #f0f0f0;
   animation: p1 2s linear;
+}
+
+.hide {
+  display: none;
 }

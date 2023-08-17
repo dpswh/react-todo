@@ -17,7 +17,7 @@ export default function DigitalClock() {
     return formattedDate;
   }
 
-  const [clockState, setClockState] = useState('');
+  const [clock12hr, setClockState] = useState('');
   const [clock24hr, setClock24hr] = useState('');
   const [timeIsClicked, setTimeIsClicked] = useState(false);
 
@@ -27,7 +27,7 @@ export default function DigitalClock() {
     const intervalId = setInterval(() => {
       const date = new Date();
       setClockState(date.toLocaleTimeString());
-      
+
       // Extract the 24-hour format time
       const hours24 = String(date.getHours()).padStart(2, '0');
       const minutes = String(date.getMinutes()).padStart(2, '0');
@@ -45,7 +45,12 @@ export default function DigitalClock() {
   return (
     <div className='time'>
       <div>
-        <strong className='time__text' onClick={changeDateFormatHandler}>{timeIsClicked === true ? clockState : clock24hr}</strong>
+        <strong
+          className='time__text'
+          onClick={changeDateFormatHandler}
+        >
+          {timeIsClicked === true ? clock12hr : clock24hr}
+        </strong>
         <p className='today'>{today}</p>
       </div>
     </div>
