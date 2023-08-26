@@ -47,6 +47,13 @@ function App() {
 
   const [numOfToDo, setNumOfToDo] = useState(0);
   const [toDoTasks, setToDoTasks] = useState([]);
+  const [theme, setTheme] = useState({
+    backgroundColor: '#38046A',
+    primaryColor: '',
+    secondaryColor: '',
+    buttonColor: '#fff',
+  });
+  const [selectedTheme, setSelectedTheme] = useState('blueberry');
 
   const transitions = useTransition(toDoTasks, {
     from: { opacity: 0 },
@@ -75,21 +82,52 @@ function App() {
 
   let toDoPlaceholder =
     <center>
-      <h1 className='todo__placeholder'>{quotes[randomNum]}</h1>
+      <h1
+        className='todo__placeholder'
+        style={{ color: selectedTheme === 'peach' ? '#FFDFDE' : theme.secondaryColor }}
+      >{quotes[randomNum]}</h1>
       {/* <h1 className='todo__placeholder'>{dataTest}</h1> */}
     </center>
 
   if (numOfToDo > 0) {
     toDoPlaceholder = transitions((style, task) => (
       <animated.div style={style}>
-        <ToDo className='todo--flex' task={task} />
+        <ToDo
+          className='todo--flex'
+          task={task}
+        />
       </animated.div>
     ))
   }
 
+  // const changeTheme = (color) => {
+  //   console.log(color);
+  // }
+  useEffect(() => {
+    console.log(theme);
+  }, [theme]);
+
+  document.querySelector('body').style.backgroundColor = theme.backgroundColor;
+
+
   return (
-    <div className="App parent">
-      <AppContext.Provider value={{toDoTasks, setToDoTasks, dataTest, setdataTest}}>
+    <div
+      className="App parent"
+      style={{
+        backgroundColor: theme.backgroundColor
+      }}
+    >
+
+      <AppContext.Provider value={{
+        toDoTasks,
+        setToDoTasks,
+        dataTest,
+        setdataTest,
+        setTheme,
+        theme,
+        selectedTheme,
+        setSelectedTheme
+      }}>
 
         <Date className='time grid--top' />
 
@@ -116,7 +154,7 @@ function App() {
             <ThemePicker />
           </div>
         </div>
-        
+
       </AppContext.Provider>
     </div>
   );

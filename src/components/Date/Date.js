@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Date.css';
+import { AppContext } from '../../App';
 
 export default function DigitalClock() {
   function formatDateToday() {
@@ -20,6 +21,7 @@ export default function DigitalClock() {
   const [clock12hr, setClockState] = useState('');
   const [clock24hr, setClock24hr] = useState('');
   const [timeIsClicked, setTimeIsClicked] = useState(false);
+  const { theme, selectedTheme } = useContext(AppContext);
 
   const today = formatDateToday();
 
@@ -48,10 +50,14 @@ export default function DigitalClock() {
         <strong
           className='time__text'
           onClick={changeDateFormatHandler}
+          style={{ color: selectedTheme === 'peach' ? '#FFDFDE' : theme.secondaryColor }}
         >
           {timeIsClicked === true ? clock12hr : clock24hr}
         </strong>
-        <p className='today'>{today}</p>
+        <p
+          className='today'
+          style={{ color: selectedTheme === 'peach' ? '#FFDFDE' : theme.secondaryColor }}
+        >{today}</p>
       </div>
     </div>
   )

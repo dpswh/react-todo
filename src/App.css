@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;500;600;700&display=swap');
 
 
+
+
 body {
-  background-color: #38046A;
+  
   font-family: 'Signika', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #e2c5ff;
 }
 
 
@@ -13,7 +23,7 @@ body {
   grid-template-rows: auto 1fr auto;
   grid-column-gap: 0px;
   grid-row-gap: 30px;
-  height: 97vh;
+  height: 95vh;
 }
 
 .grid--top {
@@ -71,7 +81,6 @@ body {
   font-weight: 200;
   font-size: 4rem;
   width: 60%;
-  color: #e2c5ff;
   user-select: none;
   animation: upAndDown 2s infinite ease-in-out;
 }

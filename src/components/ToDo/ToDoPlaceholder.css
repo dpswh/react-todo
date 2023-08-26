@@ -1,0 +1,51 @@
+
+.todo__grid--buttons {
+  position: relative;
+  top: 1rem;
+  /* grid-area: 3 / 1 / 4 / 2; */
+  display: flex;
+  justify-content: space-between;
+  /* background-color: pink; */
+  /* height: 50px; */
+}
+
+.todo__buttons--close {
+  
+  background-color: #38046A;
+  color: #e2c5ff;
+  
+  height: 1.5rem;
+  width: 20%;
+  
+  border: none;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+}
+
+.todo__buttons--close--true {
+  position: relative;
+  background-color: #38046A;
+  color: #e2c5ff;
+  
+  height: 1.5rem;
+  width: 20%;
+  
+  border: none;
+  border-radius: 0.5rem;
+  top: 1rem;
+
+  cursor: pointer;
+}
+
+.todo__flex--buttons--close--true {
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  /* display: grid; */
+  /* height: 100%; */
+}
+
+.hide {
+  display: none;
+}

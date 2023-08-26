@@ -37,7 +37,8 @@ export default function ToDoList(props) {
     
   }
 
-  const {numOfToDo, setNumOfToDo} = useContext(AppContext);
+
+  const {numOfToDo, setNumOfToDo, theme, selectedTheme } = useContext(AppContext);
 
   console.log(data);
 
@@ -46,6 +47,7 @@ export default function ToDoList(props) {
       {data.map((item, index) => (
         <div key={index} className='todo__item'>
           <li
+            style={{ color: selectedTheme === 'peach' ? '#FFDFDE' : theme.secondaryColor }}
             onClick={() => toggledCompleted(item)}
             className={completedItems.includes(item) ? 'todo--completed' : ''}
           >
@@ -54,7 +56,7 @@ export default function ToDoList(props) {
           <i
             onClick={() => props.removeTask(item)}
             className="fa-solid fa-x"
-            style={{ color: '' }}>
+            style={{ color: theme.secondaryColor }}>
           </i>
         </div>
       ))}

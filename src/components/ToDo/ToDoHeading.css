@@ -1,0 +1,16 @@
+.todo__grid--heading {
+  grid-area: 1 / 1 / 2 / 2;
+  /* background-color: brown; */
+  /* height: 50px; */
+}
+
+.todo__heading {
+  display: flex;
+  justify-content: center;
+  color: #e2c5ff;
+  margin-top: 1rem;
+}
+
+.hide {
+  display: none;
+}

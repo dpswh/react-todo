@@ -2,6 +2,7 @@
   /* position: absolute; */
   margin-top: 1rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   background-color: #f0f0f0;
@@ -11,4 +12,20 @@
   border-radius: 1rem;
 
 
+}
+
+.theme-picker h1 {
+  color: #000000;
+}
+
+.themepicker__container {
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-around;
+  /* cursor: pointer; */
+}
+
+.themepicker__container div {
+  cursor: pointer;
+  font-size: 2rem;
 }

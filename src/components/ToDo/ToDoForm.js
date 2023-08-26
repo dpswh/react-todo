@@ -4,7 +4,7 @@ import './ToDoForm.css';
 
 export default function ToDoForm(props) {
 
-  const { dataTest, setdataTest } = useContext(AppContext);
+  const { dataTest, setdataTest, theme, selectedTheme } = useContext(AppContext);
 
   const [taskState, setTaskState] = useState();
 
@@ -38,6 +38,10 @@ export default function ToDoForm(props) {
       <button 
         className="todo__heading--form__button"
         submit='submit'
+        style={{
+          backgroundColor: theme.backgroundColor,
+          color: selectedTheme === 'peach' ? '#ffdfde' : theme.secondaryColor
+        }}
       >Add Task</button>
       
     </form>
